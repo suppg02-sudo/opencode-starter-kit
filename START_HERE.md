@@ -34,18 +34,19 @@ Use the question tool to present preset options:
 ```json
 {
   "questions": [{
-    "question": "Welcome to OpenCode Starter Kit! Choose an installation preset:",
-    "header": "Setup Preset",
+    "question": "Welcome to OpenCode Starter Kit! Choose your setup:",
+    "header": "Setup",
     "options": [
-      {"label": "Minimal (Recommended)", "description": "Skill factory + memory only (~2 min)"},
+      {"label": "Full Install (Recommended)", "description": "Everything included - complete AI assistant (~10 min)"},
       {"label": "Recommended", "description": "Core + skills + containers (~5 min)"},
-      {"label": "Full Install", "description": "Everything included (~10 min)"},
+      {"label": "Minimal", "description": "Just essentials (~2 min)"},
       {"label": "Custom", "description": "Pick individual components"}
     ],
     "multiple": false
   }]
 }
 ```
+**Full Install is the default/recommended option** - it includes all skills, containers, and configurations.
 
 ### Step 4: If Custom Selected - Present Categories
 Loop through categories from menu.json, using question tool with `"multiple": true`.

@@ -6,20 +6,27 @@
   "agent_instructions": "MANDATORY: When user types 'setup': 1) Run check-question-tool.sh 2) Read this file 3) Use question tool for ALL user choices 4) Follow flow: presets → confirm/customize → categories → dispatch. NEVER skip the question tool.",
   
   "presets": {
-    "minimal": {
-      "label": "Minimal",
-      "description": "AGENTS config + skill factory + memory (~2 min)",
-      "includes": ["agents-config", "skill-factory", "openmemory-lite"]
+    "full": {
+      "label": "Full Install (Recommended)",
+      "description": "Everything included - complete setup (~10 min)",
+      "includes": ["*"],
+      "is_default": true
     },
     "recommended": {
-      "label": "Recommended (Recommended)",
+      "label": "Recommended",
       "description": "Core + skills + essential containers (~5 min)",
       "includes": ["agents-config", "skill-factory", "openmemory-lite", "tracking-system", "cron", "reminder", "blog-post-creator", "transcription", "memory-skill", "tracking-skill", "docker-base", "portainer", "homepage"]
     },
-    "full": {
-      "label": "Full Install",
-      "description": "Everything included (~10 min)",
-      "includes": ["*"]
+    "minimal": {
+      "label": "Minimal",
+      "description": "AGENTS config + skill factory + memory only (~2 min)",
+      "includes": ["agents-config", "skill-factory", "openmemory-lite"]
+    },
+    "custom": {
+      "label": "Custom",
+      "description": "Pick individual components",
+      "includes": [],
+      "skip_to": "categories"
     }
   },
   
@@ -69,23 +76,25 @@
   
   "flow": {
     "steps": [
-      "1. Present presets (question tool)",
-      "2. If custom, present each category (multi-select)",
-      "3. Resolve dependencies",
-      "4. Confirm selections",
-      "5. Dispatch to build agent"
+      "1. Run check-question-tool.sh",
+      "2. Present presets (Full Install is first option)",
+      "3. If Full/Recommended/Minimal selected → confirm → dispatch",
+      "4. If Custom → present categories (multi-select)",
+      "5. Resolve dependencies",
+      "6. Confirm selections",
+      "7. Dispatch to build agent"
     ]
   },
   
   "question_tool_examples": {
     "presets": {
-      "question": "Choose installation preset:",
-      "header": "Setup Preset",
+      "question": "Welcome to OpenCode Starter Kit! Choose your setup:",
+      "header": "Setup",
       "options": [
-        {"label": "Minimal (Recommended)", "description": "Core only, ~2 min"},
-        {"label": "Recommended", "description": "Full featured, ~5 min"},
-        {"label": "Full", "description": "Everything, ~10 min"},
-        {"label": "Custom", "description": "Pick components"}
+        {"label": "Full Install (Recommended)", "description": "Everything included - complete AI assistant setup (~10 min)"},
+        {"label": "Recommended", "description": "Core + skills + containers (~5 min)"},
+        {"label": "Minimal", "description": "Just essentials (~2 min)"},
+        {"label": "Custom", "description": "Pick individual components"}
       ],
       "multiple": false
     },
