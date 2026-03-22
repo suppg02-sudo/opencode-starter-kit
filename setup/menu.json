@@ -14,7 +14,7 @@
     "recommended": {
       "label": "Recommended (Recommended)",
       "description": "Core + skills + essential containers (~5 min)",
-      "includes": ["agents-config", "skill-factory", "openmemory-lite", "tracking-system", "cron", "reminder", "blog-post-creator", "memory-skill", "tracking-skill", "docker-base", "portainer", "homepage"]
+      "includes": ["agents-config", "skill-factory", "openmemory-lite", "tracking-system", "cron", "reminder", "blog-post-creator", "transcription", "memory-skill", "tracking-skill", "docker-base", "portainer", "homepage"]
     },
     "full": {
       "label": "Full Install",
@@ -45,6 +45,7 @@
         {"id": "cron", "label": "Cron", "description": "Scheduled task management"},
         {"id": "reminder", "label": "Reminder", "description": "Telegram reminders with cron"},
         {"id": "blog-post-creator", "label": "Blog Post Creator", "description": "Hugo blog workflow with YouTube pipeline"},
+        {"id": "transcription", "label": "YouTube Transcription", "description": "Extract transcripts, auto-create blog posts", "requires": ["blog-post-creator"]},
         {"id": "memory-skill", "label": "Memory Gateway", "description": "Memory skill interface (trigger: mem)", "requires": ["openmemory-lite"]},
         {"id": "tracking-skill", "label": "Tracking Gateway", "description": "Tracking skill interface (trigger: cr)"},
         {"id": "openrag", "label": "OpenRAG", "description": "Document retrieval stack", "requires": ["docker-base"]}

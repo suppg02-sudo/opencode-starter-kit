@@ -1,0 +1,21 @@
+{
+  "id": "transcription",
+  "name": "YouTube Transcription",
+  "description": "Extract transcripts from YouTube videos and create blog posts",
+  "category": "skills",
+  "requires": ["docker-base"],
+  "triggers": ["youtube"],
+  "files": [
+    {
+      "src": "templates/skills/transcription/SKILL.md",
+      "dest": "~/.config/opencode/skills/transcription/SKILL.md"
+    }
+  ],
+  "copy_command": "setup/scripts/copy-skills.sh transcription",
+  "dependencies": ["blog-post-creator"],
+  "workflow": "YouTube URL → Transcript → Summary → Blog Post",
+  "validation": {
+    "command": "test -f ~/.config/opencode/skills/transcription/SKILL.md",
+    "expected": true
+  }
+}
