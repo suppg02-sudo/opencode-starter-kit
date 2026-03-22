@@ -1,19 +1,28 @@
 # AGENTS.md - OpenCode Configuration
 
-## Trigger Commands
+## Core Triggers
 
 | Trigger | Action |
 |---------|--------|
 | `setup` | Run interactive setup menu |
-| `skill` or `sd` | Discover available skills |
+| `skill` or `sd` | Discover all available skills |
 | `mem` or `memory` | Memory gateway - store/search memories |
-| `cron` | Manage scheduled tasks |
-| `remind` | Set reminders via Telegram |
-| `blog` | Create Hugo blog posts |
-| `status` | Check system health |
-| `a [url]` | Browser automation |
 
-**Skills with triggers:** `brainstorm` (design ideas), `youtube URL` (transcribe to blog)
+## Finding Skills
+
+Type `skill` to discover all skills and their triggers.
+
+Skills are self-documenting - each skill defines its own triggers in:
+```
+~/.config/opencode/skills/{skill-name}/SKILL.md
+```
+
+Common skill triggers:
+- `brainstorm` or `bs` - Design exploration
+- `youtube URL` - Transcribe to blog post
+- `cron` - Scheduled tasks
+- `remind` - Set reminders
+- `blog` - Create blog posts
 
 ## Agent Behavior
 
@@ -30,7 +39,6 @@
 ### Memory System
 - Save decisions to memory after major tasks
 - Use `pghmem search "topic"` to recall
-- Scope: `project` (codebase-specific) or `user` (preferences)
 
 ### Safety Rules
 - Ask before `rm -rf` or deleting containers
@@ -39,9 +47,9 @@
 
 ## Customization
 
-Add your own triggers below:
-```markdown
-| `mytrigger` | My custom action |
+Add your own triggers in the skills directory:
+```
+~/.config/opencode/skills/my-skill/SKILL.md
 ```
 
 ---

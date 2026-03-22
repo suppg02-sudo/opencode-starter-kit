@@ -1,14 +1,21 @@
 # AGENTS.md - OpenCode Configuration
 
-## Trigger Commands
+## Core Triggers
 
-### System & Infrastructure
 | Trigger | Action |
 |---------|--------|
 | `setup` | Interactive setup menu |
 | `status` | System health check |
-| `skill` or `sd` | Discover skills |
-| `containers` | Docker management |
+| `skill` or `sd` | Discover all skills |
+
+## Finding Skills
+
+Type `skill` to discover all available skills and their triggers.
+
+Each skill is self-documenting:
+```
+~/.config/opencode/skills/{skill-name}/SKILL.md
+```
 
 ### Memory & Context
 | Trigger | Action |
@@ -17,20 +24,15 @@
 | `cr` | Context registry |
 | `checkpoint` | Save session state |
 
-### Communication
-| Trigger | Action |
-|---------|--------|
-| `remind` | Set reminders (Telegram) |
-| `notify` | Send notification |
-| `blog` or `bp` | Create blog post |
-
-### Tools & Services
-| Trigger | Action |
-|---------|--------|
+### Common Skills
+| Trigger | Skill |
+|---------|-------|
+| `brainstorm` or `bs` | Design exploration |
+| `youtube URL` | Transcribe to blog |
 | `cron` | Scheduled tasks |
+| `remind` | Telegram reminders |
+| `blog` | Hugo blog posts |
 | `rag` | Document retrieval |
-| `a [url]` | Browser automation |
-| `space` | Disk cleanup |
 
 ---
 
@@ -72,12 +74,14 @@ pghmem search "topic"
 
 ---
 
-## Custom Triggers
+## Adding New Skills
 
-Add your own:
-```markdown
-| `mycommand` | What it does |
+Create a skill directory:
+```bash
+mkdir -p ~/.config/opencode/skills/my-skill
 ```
+
+Add `SKILL.md` with trigger_words in frontmatter.
 
 ---
 *OpenCode Starter Kit - Customize at ~/.config/opencode/AGENTS.md*
