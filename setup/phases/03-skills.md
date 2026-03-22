@@ -13,12 +13,13 @@ setup/scripts/copy-skills.sh ${SELECTED_SKILLS[@]}
 
 | Skill | Trigger | Dependencies |
 |-------|---------|--------------|
-| cron | cron | none |
-| reminder | remind | none |
-| blog-post-creator | blog | docker-base |
-| memory-skill | mem | memory-system |
-| tracking-skill | cr | tracking-system |
-| openrag | rag | docker-base |
+| cron | `cron` | none |
+| reminder | `remind` | none |
+| blog-post-creator | `blog` | docker-base |
+| transcription | `youtube` | blog-post-creator |
+| memory-skill | `mem` | openmemory-lite |
+| tracking-skill | `cr` | none |
+| openrag | `rag` | docker-base |
 
 ## Validate
 - [ ] Each selected skill has SKILL.md

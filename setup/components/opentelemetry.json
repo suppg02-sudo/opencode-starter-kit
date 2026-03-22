@@ -1,0 +1,9 @@
+{
+  "id": "opentelemetry",
+  "copy_method": "script",
+  "copy_command": "setup/scripts/copy-skills.sh opentelemetry",
+  "validation": {
+    "command": "test -f ~/.config/opencode/skills/opentelemetry/SKILL.md || test -d ~/.config/opencode/skills/opentelemetry",
+    "expected": true
+  }
+}

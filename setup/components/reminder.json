@@ -1,0 +1,9 @@
+{
+  "id": "reminder",
+  "copy_method": "script",
+  "copy_command": "setup/scripts/copy-skills.sh reminder",
+  "validation": {
+    "command": "test -f ~/.config/opencode/skills/reminder/SKILL.md || test -d ~/.config/opencode/skills/reminder",
+    "expected": true
+  }
+}

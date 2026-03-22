@@ -1,0 +1,9 @@
+{
+  "id": "menu-learning",
+  "copy_method": "script",
+  "copy_command": "setup/scripts/copy-skills.sh menu-learning",
+  "validation": {
+    "command": "test -f ~/.config/opencode/skills/menu-learning/SKILL.md || test -d ~/.config/opencode/skills/menu-learning",
+    "expected": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "blog-post-creator",
+  "copy_method": "script",
+  "copy_command": "setup/scripts/copy-skills.sh blog-post-creator",
+  "validation": {
+    "command": "test -f ~/.config/opencode/skills/blog-post-creator/SKILL.md || test -d ~/.config/opencode/skills/blog-post-creator",
+    "expected": true
+  }
+}

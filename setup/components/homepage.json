@@ -1,0 +1,9 @@
+{
+  "id": "homepage",
+  "copy_method": "script",
+  "copy_command": "setup/scripts/copy-skills.sh homepage",
+  "validation": {
+    "command": "test -f ~/.config/opencode/skills/homepage/SKILL.md || test -d ~/.config/opencode/skills/homepage",
+    "expected": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "memory-skill",
+  "copy_method": "script",
+  "copy_command": "setup/scripts/copy-skills.sh memory-skill",
+  "validation": {
+    "command": "test -f ~/.config/opencode/skills/memory-skill/SKILL.md || test -d ~/.config/opencode/skills/memory-skill",
+    "expected": true
+  }
+}
