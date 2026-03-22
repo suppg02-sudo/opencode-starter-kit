@@ -1,0 +1,31 @@
+version: '3.8'
+
+# UserMemos (Memos) - Note-taking app
+# Port: ${PORT_MEMOS:-5230}
+
+services:
+  memos:
+    image: neosmemo/memos:stable
+    container_name: memos
+    restart: unless-stopped
+    ports:
+      - "${PORT_MEMOS:-5230}:5230"
+    volumes:
+      - memos_data:/var/opt/memos
+    environment:
+      - TZ=${TZ:-UTC}
+      - MEMOS_MODE=prod
+    labels:
+      - "com.opencode.managed=true"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:5230/api/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  opencode:
+    external: true
+
+volumes:
+  memos_data:
