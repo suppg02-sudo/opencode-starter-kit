@@ -1,0 +1,14 @@
+version: '3.8'
+
+networks:
+  opencode:
+    driver: bridge
+
+volumes:
+  portainer_data:
+  homepage_data:
+  nextexplorer_data:
+  usermemos_data:
+  pghmem_data:
+
+# Add services below using: docker compose -f docker-compose.yml -f docker-compose.portainer.yml up -d
