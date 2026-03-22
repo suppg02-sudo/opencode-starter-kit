@@ -42,6 +42,34 @@ EOF
 ```
 
 ## Output to User
+
+After validation completes, present onboarding options using question tool:
+
+```json
+{
+  "questions": [{
+    "question": "Installation complete! What would you like to do?",
+    "header": "Next Steps",
+    "options": [
+      {"label": "Quick Start (Recommended)", "description": "See essential commands (~30 sec)"},
+      {"label": "Guided Tour", "description": "Step by step walkthrough (~3 min)"},
+      {"label": "Skip for now", "description": "I'll explore on my own"},
+      {"label": "Skip - don't ask again", "description": "Never show this again"}
+    ],
+    "multiple": false
+  }]
+}
 ```
-Installation complete! Summary saved to ~/.config/opencode/INSTALL_SUMMARY.md
+
+If user chooses Quick Start, show:
+- `mem store "my first memory"`
+- `remind me to X in Y minutes`
+- `health-check.sh`
+- `skill` (discover skills)
+
+If user chooses Guided Tour, run:
+```bash
+setup/scripts/onboarding.sh
 ```
+
+Note: User can always run `onboarding.sh` later to see the guide again.

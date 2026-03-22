@@ -2,6 +2,32 @@
 
 Welcome to your OpenCode AI assistant!
 
+## Onboarding
+
+Not sure where to start? Run the guided tour anytime:
+
+```bash
+# Interactive menu - choose your pace
+~/.config/opencode/scripts/onboarding.sh
+
+# Quick commands only
+~/.config/opencode/scripts/onboarding.sh --quick
+
+# Resume where you left off
+~/.config/opencode/scripts/onboarding.sh --resume
+```
+
+The onboarding covers:
+1. Welcome & overview
+2. Your first memory
+3. Setting reminders
+4. System health checks
+5. What to explore next
+
+**You can skip anything and come back later.**
+
+---
+
 ## What Was Installed
 
 Based on your selections, here's what's now running:
