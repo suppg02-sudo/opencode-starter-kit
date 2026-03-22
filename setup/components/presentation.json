@@ -1,0 +1,21 @@
+{
+  "id": "presentation",
+  "name": "Presentation",
+  "description": "Create slides with Slidev, Reveal.js, Marp, Pandoc - export to PPTX/PDF/HTML/PNG",
+  "category": "skills",
+  "dependencies": ["docker-base"],
+  "install_commands": [
+    "mkdir -p ~/.config/opencode/skills/presentation",
+    "cp -r templates/skills/presentation/* ~/.config/opencode/skills/presentation/"
+  ],
+  "verify_commands": [
+    "test -f ~/.config/opencode/skills/presentation/SKILL.md"
+  ],
+  "post_install": [
+    "Docker container for Slidev: docker-compose -f templates/docker/docker-compose.slidev.yml up -d",
+    "Access at: http://${SERVER_HOST}:3030"
+  ],
+  "trigger_words": ["create presentation", "make presentation", "new presentation", "build presentation", "create slides"],
+  "export_formats": ["PDF", "PPTX", "HTML", "PNG"],
+  "platforms": ["Slidev", "Reveal.js", "Marp", "Pandoc"]
+}

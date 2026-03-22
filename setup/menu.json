@@ -61,7 +61,9 @@
         {"id": "blog-post-creator", "label": "Blog Post Creator", "description": "Hugo blog workflow with YouTube pipeline"},
         {"id": "transcription", "label": "YouTube Transcription", "description": "Extract transcripts, auto-create blog posts", "requires": ["blog-post-creator"]},
         {"id": "memory-skill", "label": "Memory Gateway", "description": "Memory skill interface (trigger: mem)", "requires": ["openmemory-lite"]},
-        {"id": "openrag", "label": "OpenRAG", "description": "Document retrieval stack", "requires": ["docker-base"]}
+        {"id": "openrag", "label": "OpenRAG", "description": "Document retrieval stack", "requires": ["docker-base"]},
+        {"id": "presentation", "label": "Presentation", "description": "Create slides with Slidev, Pandoc, export to PPTX/PDF"},
+        {"id": "glm-slide", "label": "GLM Slide (AI)", "description": "AI-powered slide generation via Z.ai API"}
       ]
     },
     {

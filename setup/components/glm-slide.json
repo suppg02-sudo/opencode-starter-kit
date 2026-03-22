@@ -1,0 +1,23 @@
+{
+  "id": "glm-slide",
+  "name": "GLM Slide (AI)",
+  "description": "AI-powered slide and poster generation via Z.ai GLM Slide Agent",
+  "category": "skills",
+  "dependencies": [],
+  "install_commands": [
+    "mkdir -p ~/.config/opencode/skills/glm-slide",
+    "cp -r templates/skills/glm-slide/* ~/.config/opencode/skills/glm-slide/"
+  ],
+  "verify_commands": [
+    "test -f ~/.config/opencode/skills/glm-slide/SKILL.md"
+  ],
+  "post_install": [
+    "Get API key from: https://platform.zhipu.ai/",
+    "Set environment: export ZAI_API_KEY='your_key'",
+    "Usage: 'ai slides' or 'generate slides'"
+  ],
+  "trigger_words": ["ai slides", "ai presentation", "generate slides", "glm slide"],
+  "api_endpoint": "https://open.bigmodel.cn/api/paas/v4/agents/agent",
+  "cost": "$0.7 per 1M tokens",
+  "use_cases": ["Business presentations", "Educational slides", "Posters", "Personal portfolios"]
+}
