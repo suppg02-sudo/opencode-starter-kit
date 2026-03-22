@@ -9,12 +9,12 @@
     "minimal": {
       "label": "Minimal",
       "description": "Skill factory + memory only (~2 min)",
-      "includes": ["skill-factory", "memory-system"]
+      "includes": ["skill-factory", "openmemory-lite"]
     },
     "recommended": {
       "label": "Recommended (Recommended)",
       "description": "Core + skills + essential containers (~5 min)",
-      "includes": ["skill-factory", "memory-system", "tracking-system", "cron", "reminder", "blog-post-creator", "memory-skill", "tracking-skill", "docker-base", "portainer", "homepage"]
+      "includes": ["skill-factory", "openmemory-lite", "tracking-system", "cron", "reminder", "blog-post-creator", "memory-skill", "tracking-skill", "docker-base", "portainer", "homepage"]
     },
     "full": {
       "label": "Full Install",
@@ -30,7 +30,8 @@
       "description": "Essential infrastructure",
       "options": [
         {"id": "skill-factory", "label": "Skill Factory", "description": "Meta-skill for skill creation", "required_for": ["recommended", "full"]},
-        {"id": "memory-system", "label": "Memory (PostgreSQL)", "description": "Persistent AI memory with semantic search", "requires": ["docker-base"]},
+        {"id": "openmemory-lite", "label": "Memory - OpenMemory Lite (Recommended)", "description": "Persistent memory with conversations, reminders, dashboard", "requires": ["docker-base"]},
+        {"id": "memory-json", "label": "Memory - JSON File", "description": "Simple file-based memory, no Docker required"},
         {"id": "tracking-system", "label": "Tracking", "description": "Flow and context tracking"},
         {"id": "opentelemetry", "label": "OpenTelemetry", "description": "Observability and tracing", "requires": ["docker-base"]}
       ]
@@ -43,7 +44,7 @@
         {"id": "cron", "label": "Cron", "description": "Scheduled task management"},
         {"id": "reminder", "label": "Reminder", "description": "Telegram reminders with cron"},
         {"id": "blog-post-creator", "label": "Blog Post Creator", "description": "Hugo blog workflow with YouTube pipeline"},
-        {"id": "memory-skill", "label": "Memory Gateway", "description": "Memory skill interface (trigger: mem)", "requires": ["memory-system"]},
+        {"id": "memory-skill", "label": "Memory Gateway", "description": "Memory skill interface (trigger: mem)", "requires": ["openmemory-lite"]},
         {"id": "tracking-skill", "label": "Tracking Gateway", "description": "Tracking skill interface (trigger: cr)"},
         {"id": "openrag", "label": "OpenRAG", "description": "Document retrieval stack", "requires": ["docker-base"]}
       ]

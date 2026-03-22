@@ -10,32 +10,28 @@
 setup/scripts/copy-skills.sh skill-factory
 ```
 
-### memory-system
+### openmemory-lite
 ```bash
-# Create PostgreSQL container
-cat > ~/docker/docker-compose.memory.yml << 'EOF'
-version: '3.8'
-services:
-  postgres-pgvector:
-    image: pgvector/pgvector:pg16
-    container_name: pghmem
-    environment:
-      POSTGRES_DB: hybrid_memory
-      POSTGRES_USER: memory
-      POSTGRES_PASSWORD: ${MEMORY_DB_PASSWORD:-changeme}
-    volumes:
-      - pghmem_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    restart: unless-stopped
-volumes:
-  pghmem_data:
-EOF
+# Deploy OpenMemory container
+cp templates/docker/docker-compose.openmemory.yml ~/docker/
+cd ~/docker && docker compose -f docker-compose.openmemory.yml up -d
+sleep 20
 
-cd ~/docker && docker compose -f docker-compose.memory.yml up -d
-sleep 10
-pip3 install pghmem
+# Configure MCP integration
+python3 << 'PYTHON'
+import json, os
+config = json.load(open(os.path.expanduser("~/.config/opencode/opencode.json")))
+if "mcp" not in config: config["mcp"] = {}
+config["mcp"]["openmemory"] = {
+    "type": "remote",
+    "url": "http://localhost:8081/mcp",
+    "headers": {"MCP-Token": "opencode-secret"},
+    "enabled": True
+}
+json.dump(config, open(os.path.expanduser("~/.config/opencode/opencode.json"), "w"), indent=2)
+PYTHON
 ```
+**Access**: Dashboard at http://${SERVER_HOST}:3006
 
 ### tracking-system
 ```bash
@@ -49,4 +45,5 @@ setup/scripts/copy-skills.sh opentelemetry
 
 ## Validate
 - [ ] Selected core skills installed
-- [ ] PostgreSQL running (if memory selected)
+- [ ] OpenMemory running (if selected): `curl http://localhost:8081/health`
+- [ ] Dashboard accessible: http://${SERVER_HOST}:3006

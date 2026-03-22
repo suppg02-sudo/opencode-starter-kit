@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  openmemory:
+    image: openmemory/openmemory:latest
+    container_name: openmemory
+    restart: unless-stopped
+    ports:
+      - "8081:8080"   # API
+      - "3006:3006"   # Dashboard
+    environment:
+      OM_PORT: 8080
+      OM_MODE: standard
+      OM_TIER: hybrid
+      OM_DB_PATH: /data/openmemory.sqlite
+      OM_API_KEY: ${OM_API_KEY:-opencode-secret}
+      OM_EMBEDDINGS: synthetic
+      OM_VEC_DIM: 256
+      OM_RATE_LIMIT_ENABLED: "false"
+      OM_AUTO_REFLECT: "false"
+    volumes:
+      - openmemory_data:/data
+    networks:
+      - opencode
+
+networks:
+  opencode:
+    external: true
+
+volumes:
+  openmemory_data:

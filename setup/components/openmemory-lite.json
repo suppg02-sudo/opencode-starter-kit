@@ -1,0 +1,32 @@
+{
+  "id": "openmemory-lite",
+  "name": "OpenMemory Lite",
+  "description": "Lightweight persistent memory with conversations, reminders, and dashboard",
+  "category": "core",
+  "requires": ["docker-base"],
+  "ports": {
+    "8081": "API",
+    "3006": "Dashboard"
+  },
+  "copy_method": "script",
+  "install_script": "setup/scripts/setup-openmemory.sh",
+  "files": [
+    {
+      "src": "templates/docker/docker-compose.openmemory.yml",
+      "dest": "~/docker/docker-compose.openmemory.yml"
+    }
+  ],
+  "mcp_integration": {
+    "name": "openmemory",
+    "type": "remote",
+    "url": "http://localhost:8081/mcp",
+    "headers": ["MCP-Token"],
+    "enabled": true
+  },
+  "validation": {
+    "command": "curl -sf http://localhost:8081/health",
+    "expected": "version"
+  },
+  "triggers": ["mem", "memory"],
+  "post_install": "OpenMemory dashboard available at http://$(hostname):3006"
+}
