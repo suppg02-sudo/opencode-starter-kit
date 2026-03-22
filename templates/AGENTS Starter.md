@@ -6,6 +6,8 @@
 |---------|--------|
 | `setup` | Run interactive setup menu |
 | `skill` or `sd` | Discover all available skills |
+| `sf` or `skill-factory` | Create or update skills |
+| `mf` or `menu-factory` | Validate and standardize menus |
 | `mem` or `memory` | Memory gateway - store/search memories |
 
 ## Finding Skills
@@ -16,6 +18,14 @@ Skills are self-documenting - each skill defines its own triggers in:
 ```
 ~/.config/opencode/skills/{skill-name}/SKILL.md
 ```
+
+## Factory Skills
+
+| Trigger | Purpose |
+|---------|---------|
+| `sf` | Create new skills (13-section workflow) |
+| `mf` | Validate skill menus against standards |
+| `ml` | Adaptive menus that learn from choices |
 
 Common skill triggers:
 - `brainstorm` or `bs` - Design exploration

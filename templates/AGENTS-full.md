@@ -8,6 +8,14 @@
 | `status` | System health check |
 | `skill` or `sd` | Discover all skills |
 
+## Factory Skills
+
+| Trigger | Purpose |
+|---------|---------|
+| `sf` or `skill-factory` | Create/update skills (13-section workflow) |
+| `mf` or `menu-factory` | Validate skill menus against standards |
+| `ml` or `menu-learning` | Adaptive menus that learn from choices |
+
 ## Finding Skills
 
 Type `skill` to discover all available skills and their triggers.
@@ -28,11 +36,14 @@ Each skill is self-documenting:
 | Trigger | Skill |
 |---------|-------|
 | `brainstorm` or `bs` | Design exploration |
+| `research` or `r` | Deep research with citations |
+| `news` | Hacker News + RSS aggregation |
 | `youtube URL` | Transcribe to blog |
 | `cron` | Scheduled tasks |
 | `remind` | Telegram reminders |
 | `blog` | Hugo blog posts |
 | `rag` | Document retrieval |
+| `telegram` or `tg` | Bot integration |
 
 ---
 
@@ -76,12 +87,20 @@ pghmem search "topic"
 
 ## Adding New Skills
 
-Create a skill directory:
+Use skill-factory to create properly structured skills:
+
+```
+sf create my-skill --description "What it does"
+```
+
+Or manually:
 ```bash
 mkdir -p ~/.config/opencode/skills/my-skill
 ```
 
 Add `SKILL.md` with trigger_words in frontmatter.
+
+Use `mf` (menu-factory) to validate menus.
 
 ---
 *OpenCode Starter Kit - Customize at ~/.config/opencode/AGENTS.md*
