@@ -1,0 +1,25 @@
+{
+  "id": "hugo",
+  "name": "Hugo Blog",
+  "description": "Static site generator with live reload, development server, and content management",
+  "category": "containers",
+  "dependencies": ["docker-base"],
+  "install_commands": [
+    "mkdir -p ~/docker/website",
+    "cp templates/docker/docker-compose.hugo.yml ~/docker/website/docker-compose.yml",
+    "cd ~/docker/website && docker-compose run hugo hugo new site ."
+  ],
+  "verify_commands": [
+    "test -f ~/docker/website/docker-compose.yml",
+    "docker ps | grep -q hugo"
+  ],
+  "post_install": [
+    "Edit config.toml with your site settings",
+    "Add theme: cd ~/docker/website && git clone <theme-repo> themes/<theme-name>",
+    "Start server: docker-compose up -d",
+    "Access at: http://${SERVER_HOST}:1313"
+  ],
+  "trigger_words": ["blog", "bp", "new post"],
+  "ports": [1313],
+  "image": "hugomods/hugo:exts"
+}

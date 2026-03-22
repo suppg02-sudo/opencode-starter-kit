@@ -75,7 +75,8 @@
         {"id": "portainer", "label": "Portainer", "description": "Container management UI (port 9000)", "requires": ["docker-base"]},
         {"id": "homepage", "label": "Homepage", "description": "Server dashboard (port 8765)", "requires": ["docker-base"]},
         {"id": "nextexplorer", "label": "NextExplorer", "description": "File browser (port 8080)", "requires": ["docker-base"]},
-        {"id": "usermemos", "label": "UserMemos", "description": "Note-taking app (port 5232)", "requires": ["docker-base"]}
+        {"id": "usermemos", "label": "UserMemos", "description": "Note-taking app (port 5232)", "requires": ["docker-base"]},
+        {"id": "hugo", "label": "Hugo Blog", "description": "Static site generator (port 1313)", "requires": ["docker-base"]}
       ]
     }
   ],
