@@ -13,6 +13,8 @@
 | `status` | Check system health |
 | `a [url]` | Browser automation |
 
+**Skills with triggers:** `brainstorm` (design ideas), `youtube URL` (transcribe to blog)
+
 ## Agent Behavior
 
 ### Responses

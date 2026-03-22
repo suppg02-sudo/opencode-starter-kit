@@ -1,0 +1,15 @@
+{
+  "id": "brainstorming",
+  "name": "Brainstorming",
+  "description": "Design exploration skill - use before creative work",
+  "category": "skills",
+  "triggers": ["brainstorm", "bs"],
+  "copy_method": "script",
+  "copy_command": "setup/scripts/copy-skills.sh brainstorming",
+  "validation": {
+    "command": "test -f ~/.config/opencode/skills/brainstorming/SKILL.md",
+    "expected": true
+  },
+  "modes": ["Quick Think", "Light Design", "Full Design"],
+  "recommended_for": ["new features", "architecture decisions", "config changes"]
+}

@@ -15,7 +15,7 @@
     "recommended": {
       "label": "Recommended",
       "description": "Core + skills + essential containers (~5 min)",
-      "includes": ["agents-config", "skill-factory", "openmemory-lite", "tracking-system", "cron", "reminder", "blog-post-creator", "transcription", "memory-skill", "tracking-skill", "docker-base", "portainer", "homepage"]
+      "includes": ["agents-config", "skill-factory", "brainstorming", "openmemory-lite", "tracking-system", "cron", "reminder", "blog-post-creator", "transcription", "memory-skill", "tracking-skill", "docker-base", "portainer", "homepage"]
     },
     "minimal": {
       "label": "Minimal",
@@ -51,6 +51,7 @@
       "label": "Skills",
       "description": "Pre-built skills for common tasks",
       "options": [
+        {"id": "brainstorming", "label": "Brainstorming (Recommended)", "description": "Design exploration - use before creative work"},
         {"id": "cron", "label": "Cron", "description": "Scheduled task management"},
         {"id": "reminder", "label": "Reminder", "description": "Telegram reminders with cron"},
         {"id": "blog-post-creator", "label": "Blog Post Creator", "description": "Hugo blog workflow with YouTube pipeline"},
