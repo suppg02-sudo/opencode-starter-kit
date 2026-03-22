@@ -3,9 +3,15 @@
 
 set -e
 
+# Source detected paths
+source "$HOME/.config/opencode/.paths" 2>/dev/null || {
+    echo "Run detect-paths.sh first"
+    exit 1
+}
+
 echo "=== Setting Up OpenMemory Lite ==="
 
-OM_DIR=~/docker
+OM_DIR="$DOCKER_DIR"
 OM_COMPOSE=docker-compose.openmemory.yml
 OM_API_KEY="${OM_API_KEY:-opencode-secret}"
 
@@ -70,13 +76,12 @@ else
 fi
 
 # Summary
-HOSTNAME=$(hostname)
 echo ""
 echo "=== OpenMemory Lite Setup Complete ==="
 echo ""
 echo "Access:"
-echo "  Dashboard: http://$HOSTNAME:3006"
-echo "  API:       http://$HOSTNAME:8081"
+echo "  Dashboard: http://$SERVER_HOST:$PORT_OPENMEMORY_DASHBOARD"
+echo "  API:       http://$SERVER_HOST:$PORT_OPENMEMORY_API"
 echo ""
 echo "MCP Tools available:"
 echo "  - openmemory_store    (save memories)"

@@ -1,13 +1,16 @@
 version: '3.8'
 
+# OpenMemory Lite - Persistent memory with conversations
+# Ports: API on ${PORT_OPENMEMORY_API:-8081}, Dashboard on ${PORT_OPENMEMORY_DASHBOARD:-3006}
+
 services:
   openmemory:
     image: openmemory/openmemory:latest
     container_name: openmemory
     restart: unless-stopped
     ports:
-      - "8081:8080"   # API
-      - "3006:3006"   # Dashboard
+      - "${PORT_OPENMEMORY_API:-8081}:8080"   # API
+      - "${PORT_OPENMEMORY_DASHBOARD:-3006}:3006"   # Dashboard
     environment:
       OM_PORT: 8080
       OM_MODE: standard
