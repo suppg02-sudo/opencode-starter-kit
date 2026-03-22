@@ -1,0 +1,14 @@
+{
+  "id": "telegram",
+  "copy_method": "template",
+  "files": [
+    {
+      "src": "templates/skills/telegram/SKILL.md",
+      "dest": "~/.config/opencode/skills/telegram/SKILL.md"
+    }
+  ],
+  "validation": {
+    "command": "test -f ~/.config/opencode/skills/telegram/SKILL.md",
+    "expected": true
+  }
+}

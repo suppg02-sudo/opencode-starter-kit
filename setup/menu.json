@@ -15,7 +15,7 @@
     "recommended": {
       "label": "Recommended",
       "description": "Core + skills + essential containers (~5 min)",
-      "includes": ["agents-config", "skill-factory", "brainstorming", "openmemory-lite", "tracking-system", "cron", "reminder", "blog-post-creator", "transcription", "memory-skill", "tracking-skill", "docker-base", "portainer", "homepage"]
+      "includes": ["agents-config", "skill-factory", "brainstorming", "research", "news", "telegram", "openmemory-lite", "tracking", "cron", "reminder", "blog-post-creator", "transcription", "memory-skill", "docker-base", "portainer", "homepage"]
     },
     "minimal": {
       "label": "Minimal",
@@ -52,12 +52,15 @@
       "description": "Pre-built skills for common tasks",
       "options": [
         {"id": "brainstorming", "label": "Brainstorming (Recommended)", "description": "Design exploration - use before creative work"},
+        {"id": "research", "label": "Research", "description": "Deep research with citations"},
+        {"id": "news", "label": "News", "description": "Hacker News and RSS aggregation"},
         {"id": "cron", "label": "Cron", "description": "Scheduled task management"},
-        {"id": "reminder", "label": "Reminder", "description": "Telegram reminders with cron"},
+        {"id": "reminder", "label": "Reminder", "description": "Telegram reminders with cron", "requires": ["telegram"]},
+        {"id": "telegram", "label": "Telegram", "description": "Bot integration for notifications"},
+        {"id": "tracking", "label": "Tracking", "description": "Flow and context tracking (trigger: cr)"},
         {"id": "blog-post-creator", "label": "Blog Post Creator", "description": "Hugo blog workflow with YouTube pipeline"},
         {"id": "transcription", "label": "YouTube Transcription", "description": "Extract transcripts, auto-create blog posts", "requires": ["blog-post-creator"]},
         {"id": "memory-skill", "label": "Memory Gateway", "description": "Memory skill interface (trigger: mem)", "requires": ["openmemory-lite"]},
-        {"id": "tracking-skill", "label": "Tracking Gateway", "description": "Tracking skill interface (trigger: cr)"},
         {"id": "openrag", "label": "OpenRAG", "description": "Document retrieval stack", "requires": ["docker-base"]}
       ]
     },
