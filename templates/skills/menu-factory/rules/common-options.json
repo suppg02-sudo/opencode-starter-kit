@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Reusable option blocks for menu construction",
+  "common_options": {
+    "status": {
+      "id": "status",
+      "label": "View Status",
+      "description": "Check current state"
+    },
+    "logs": {
+      "id": "logs",
+      "label": "View Logs",
+      "description": "See recent activity"
+    },
+    "config": {
+      "id": "config",
+      "label": "Configuration",
+      "description": "Modify settings"
+    },
+    "diagnostics": {
+      "id": "diagnostics",
+      "label": "Run Diagnostics",
+      "description": "Perform health check"
+    },
+    "restart": {
+      "id": "restart",
+      "label": "Restart",
+      "description": "Restart service"
+    },
+    "backup": {
+      "id": "backup",
+      "label": "Backup",
+      "description": "Create backup"
+    },
+    "help": {
+      "id": "help",
+      "label": "Help",
+      "description": "Show usage information"
+    },
+    "list": {
+      "id": "list",
+      "label": "List",
+      "description": "Show all items"
+    },
+    "cancel": {
+      "id": "cancel",
+      "label": "Cancel",
+      "description": "Remove or stop"
+    },
+    "clear": {
+      "id": "clear",
+      "label": "Clear All",
+      "description": "Remove everything"
+    },
+    "skill_discovery": {
+      "id": "skill_discovery",
+      "label": "🔍 Skill Discovery",
+      "description": "Related docs, improve menu"
+    },
+    "exit": {
+      "id": "exit",
+      "label": "Exit",
+      "description": "Return to previous context"
+    }
+  }
+}

@@ -31,6 +31,8 @@
       "options": [
         {"id": "agents-config", "label": "AGENTS.md Config (Recommended)", "description": "Agent behavior and trigger commands"},
         {"id": "skill-factory", "label": "Skill Factory", "description": "Meta-skill for skill creation", "required_for": ["recommended", "full"]},
+        {"id": "menu-factory", "label": "Menu Factory", "description": "Standardize and validate skill menus", "requires": ["menu-learning"]},
+        {"id": "menu-learning", "label": "Menu Learning", "description": "Adaptive menus that learn from choices"},
         {"id": "openmemory-lite", "label": "Memory - OpenMemory Lite", "description": "Persistent memory with conversations, reminders, dashboard", "requires": ["docker-base"]},
         {"id": "memory-json", "label": "Memory - JSON File", "description": "Simple file-based memory, no Docker required"},
         {"id": "tracking-system", "label": "Tracking", "description": "Flow and context tracking"},

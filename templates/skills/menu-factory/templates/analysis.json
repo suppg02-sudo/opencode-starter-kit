@@ -1,0 +1,17 @@
+{
+  "template": "analysis",
+  "description": "For research, debugging, and analysis skills",
+  "required": ["run", "export", "skill_discovery", "exit"],
+  "optional": ["history", "clear_cache", "config"],
+  "default_order": ["run", "export", "history", "clear_cache", "config", "skill_discovery", "exit"],
+  "recommended_option": "run",
+  "option_definitions": {
+    "run": {"label": "Run Analysis (Recommended)", "description": "Execute analysis now"},
+    "export": {"label": "Export Results", "description": "Download analysis output"},
+    "history": {"label": "View History", "description": "See past analysis runs"},
+    "clear_cache": {"label": "Clear Cache", "description": "Remove cached data"},
+    "config": {"label": "Configuration", "description": "Adjust analysis settings"},
+    "skill_discovery": {"label": "🔍 Skill Discovery", "description": "Related docs, improve menu"},
+    "exit": {"label": "Exit", "description": "Return to previous context"}
+  }
+}

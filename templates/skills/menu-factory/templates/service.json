@@ -1,0 +1,18 @@
+{
+  "template": "service",
+  "description": "For Docker, APIs, databases, and infrastructure services",
+  "required": ["status", "logs", "skill_discovery", "exit"],
+  "optional": ["config", "diagnostics", "restart", "backup"],
+  "default_order": ["status", "logs", "config", "diagnostics", "restart", "backup", "skill_discovery", "exit"],
+  "recommended_option": "status",
+  "option_definitions": {
+    "status": {"label": "View Status (Recommended)", "description": "Check current state"},
+    "logs": {"label": "View Logs", "description": "See recent activity"},
+    "config": {"label": "Configuration", "description": "Modify settings"},
+    "diagnostics": {"label": "Run Diagnostics", "description": "Perform health check"},
+    "restart": {"label": "Restart", "description": "Restart service"},
+    "backup": {"label": "Backup", "description": "Create backup"},
+    "skill_discovery": {"label": "🔍 Skill Discovery", "description": "Related docs, improve menu"},
+    "exit": {"label": "Exit", "description": "Return to previous context"}
+  }
+}

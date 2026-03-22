@@ -1,0 +1,18 @@
+{
+  "template": "workflow",
+  "description": "For multi-phase skills with state tracking",
+  "required": ["start", "resume", "view_progress", "skill_discovery", "exit"],
+  "optional": ["reset", "export", "clear_cache"],
+  "default_order": ["start", "resume", "view_progress", "reset", "export", "clear_cache", "skill_discovery", "exit"],
+  "recommended_option": "start",
+  "option_definitions": {
+    "start": {"label": "Start Workflow (Recommended)", "description": "Begin new workflow execution"},
+    "resume": {"label": "Resume Workflow", "description": "Continue from last checkpoint"},
+    "view_progress": {"label": "View Progress", "description": "Check current workflow state"},
+    "reset": {"label": "Reset", "description": "Clear state and start fresh"},
+    "export": {"label": "Export Results", "description": "Download workflow output"},
+    "clear_cache": {"label": "Clear Cache", "description": "Remove cached data"},
+    "skill_discovery": {"label": "🔍 Skill Discovery", "description": "Related docs, improve menu"},
+    "exit": {"label": "Exit", "description": "Return to previous context"}
+  }
+}

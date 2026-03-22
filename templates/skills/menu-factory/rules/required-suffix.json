@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Required menu suffix options - must appear at end of every skill menu",
+  "required_suffix": [
+    {
+      "id": "skill_discovery",
+      "label": "🔍 Skill Discovery",
+      "description": "Related docs, improve menu"
+    },
+    {
+      "id": "exit",
+      "label": "Exit",
+      "description": "Return to previous context"
+    }
+  ],
+  "suffix_pattern": "skill_discovery.*exit",
+  "enforcement": "strict",
+  "exceptions": ["exit-only"] 
+}

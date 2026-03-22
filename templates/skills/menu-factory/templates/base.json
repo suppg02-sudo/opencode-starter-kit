@@ -1,0 +1,15 @@
+{
+  "template": "base",
+  "description": "Minimal starting point for simple skills",
+  "required": ["action", "skill_discovery", "exit"],
+  "optional": ["help", "config"],
+  "default_order": ["action", "help", "config", "skill_discovery", "exit"],
+  "recommended_option": "action",
+  "option_definitions": {
+    "action": {"label": "Run (Recommended)", "description": "Execute the main action"},
+    "help": {"label": "Help", "description": "Show usage information"},
+    "config": {"label": "Configuration", "description": "Adjust settings"},
+    "skill_discovery": {"label": "🔍 Skill Discovery", "description": "Related docs, improve menu"},
+    "exit": {"label": "Exit", "description": "Return to previous context"}
+  }
+}

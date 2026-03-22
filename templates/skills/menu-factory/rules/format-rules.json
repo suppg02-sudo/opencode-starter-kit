@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Menu format and style rules",
+  "rules": {
+    "label_max_length": 40,
+    "description_max_length": 60,
+    "max_options_per_menu": 10,
+    "no_emojis_except_discovery": true,
+    "allowed_emojis": ["🔍"],
+    "lead_with_recommended": true,
+    "recommend_suffix": " (Recommended)"
+  },
+  "severity": {
+    "label_too_long": "warning",
+    "description_too_long": "warning",
+    "too_many_options": "warning",
+    "emoji_in_label": "warning",
+    "missing_suffix": "error",
+    "no_questions": "error",
+    "invalid_json": "error"
+  }
+}
