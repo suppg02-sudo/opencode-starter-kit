@@ -1,0 +1,30 @@
+{
+  "id": "agents-config",
+  "name": "AGENTS.md Configuration",
+  "description": "Agent behavior and trigger commands",
+  "category": "core",
+  "requires": [],
+  "options": [
+    {
+      "id": "agents-minimal",
+      "label": "Minimal",
+      "description": "Just triggers and basic behavior"
+    },
+    {
+      "id": "agents-standard",
+      "label": "Standard (Recommended)",
+      "description": "Triggers, behavior, memory basics, safety rules"
+    },
+    {
+      "id": "agents-full",
+      "label": "Full",
+      "description": "Complete reference with all protocols"
+    }
+  ],
+  "files": {
+    "agents-minimal": "templates/AGENTS-minimal.md",
+    "agents-standard": "templates/AGENTS Starter.md",
+    "agents-full": "templates/AGENTS-full.md"
+  },
+  "install_command": "cp templates/AGENTS-{choice}.md ~/.config/opencode/AGENTS.md"
+}

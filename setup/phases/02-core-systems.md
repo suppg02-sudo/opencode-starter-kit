@@ -5,6 +5,15 @@
 
 ## Components
 
+### agents-config
+```bash
+# User selects: minimal, standard, or full
+# Default: standard
+AGENTS_CHOICE="${AGENTS_CHOICE:-standard}"
+cp "templates/AGENTS-${AGENTS_CHOICE}.md" ~/.config/opencode/AGENTS.md
+echo "✓ AGENTS.md configured (${AGENTS_CHOICE})"
+```
+
 ### skill-factory
 ```bash
 setup/scripts/copy-skills.sh skill-factory

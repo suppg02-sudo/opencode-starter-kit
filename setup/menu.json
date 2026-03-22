@@ -8,13 +8,13 @@
   "presets": {
     "minimal": {
       "label": "Minimal",
-      "description": "Skill factory + memory only (~2 min)",
-      "includes": ["skill-factory", "openmemory-lite"]
+      "description": "AGENTS config + skill factory + memory (~2 min)",
+      "includes": ["agents-config", "skill-factory", "openmemory-lite"]
     },
     "recommended": {
       "label": "Recommended (Recommended)",
       "description": "Core + skills + essential containers (~5 min)",
-      "includes": ["skill-factory", "openmemory-lite", "tracking-system", "cron", "reminder", "blog-post-creator", "memory-skill", "tracking-skill", "docker-base", "portainer", "homepage"]
+      "includes": ["agents-config", "skill-factory", "openmemory-lite", "tracking-system", "cron", "reminder", "blog-post-creator", "memory-skill", "tracking-skill", "docker-base", "portainer", "homepage"]
     },
     "full": {
       "label": "Full Install",
@@ -29,8 +29,9 @@
       "label": "Core Systems",
       "description": "Essential infrastructure",
       "options": [
+        {"id": "agents-config", "label": "AGENTS.md Config (Recommended)", "description": "Agent behavior and trigger commands"},
         {"id": "skill-factory", "label": "Skill Factory", "description": "Meta-skill for skill creation", "required_for": ["recommended", "full"]},
-        {"id": "openmemory-lite", "label": "Memory - OpenMemory Lite (Recommended)", "description": "Persistent memory with conversations, reminders, dashboard", "requires": ["docker-base"]},
+        {"id": "openmemory-lite", "label": "Memory - OpenMemory Lite", "description": "Persistent memory with conversations, reminders, dashboard", "requires": ["docker-base"]},
         {"id": "memory-json", "label": "Memory - JSON File", "description": "Simple file-based memory, no Docker required"},
         {"id": "tracking-system", "label": "Tracking", "description": "Flow and context tracking"},
         {"id": "opentelemetry", "label": "OpenTelemetry", "description": "Observability and tracing", "requires": ["docker-base"]}
