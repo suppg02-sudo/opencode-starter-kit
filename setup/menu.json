@@ -3,7 +3,7 @@
   "trigger": "setup",
   "description": "OpenCode Starter Kit - Interactive setup menu",
   
-  "agent_instructions": "When user types 'setup', read this file and use the question tool to present options. Follow the flow: presets → confirm or customize → categories → dispatch to build agent.",
+  "agent_instructions": "MANDATORY: When user types 'setup': 1) Run check-question-tool.sh 2) Read this file 3) Use question tool for ALL user choices 4) Follow flow: presets → confirm/customize → categories → dispatch. NEVER skip the question tool.",
   
   "presets": {
     "minimal": {
@@ -75,6 +75,36 @@
       "4. Confirm selections",
       "5. Dispatch to build agent"
     ]
+  },
+  
+  "question_tool_examples": {
+    "presets": {
+      "question": "Choose installation preset:",
+      "header": "Setup Preset",
+      "options": [
+        {"label": "Minimal (Recommended)", "description": "Core only, ~2 min"},
+        {"label": "Recommended", "description": "Full featured, ~5 min"},
+        {"label": "Full", "description": "Everything, ~10 min"},
+        {"label": "Custom", "description": "Pick components"}
+      ],
+      "multiple": false
+    },
+    "categories": {
+      "question": "Select components to install:",
+      "header": "Components",
+      "options": [],
+      "multiple": true
+    },
+    "confirm": {
+      "question": "Install selected components?",
+      "header": "Confirm",
+      "options": [
+        {"label": "Yes, proceed (Recommended)", "description": "Start installation"},
+        {"label": "Modify", "description": "Change selections"},
+        {"label": "Cancel", "description": "Abort setup"}
+      ],
+      "multiple": false
+    }
   },
   
   "dispatch": {

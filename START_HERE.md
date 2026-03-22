@@ -10,20 +10,89 @@ Open this repo in OpenCode and type:
 setup
 ```
 
-The AI agent will guide you through installing:
-- Core systems (skill factory, memory, tracking)
-- Essential skills (cron, reminder, blog, OpenRAG)
-- Container services (Portainer, Homepage, NextExplorer)
+The AI agent will guide you through installing your personal AI assistant.
 
 ---
 
-## For AI Agents
+## For AI Agents - MANDATORY INSTRUCTIONS
 
-When user types `setup`:
+When user types `setup`, follow this exact sequence:
 
-1. Read `setup/menu.json`
-2. Present options using the question tool
-3. Collect user selections
-4. Execute phases in `setup/phases/`
+### Step 1: Verify Question Tool
+```bash
+setup/scripts/check-question-tool.sh
+```
+If check fails, inform user and fix issues before proceeding.
 
-Full instructions in `setup/menu.json`.
+### Step 2: Load Menu Configuration
+```bash
+cat setup/menu.json
+```
+
+### Step 3: Present Presets Using Question Tool
+Use the question tool to present preset options:
+```json
+{
+  "questions": [{
+    "question": "Welcome to OpenCode Starter Kit! Choose an installation preset:",
+    "header": "Setup Preset",
+    "options": [
+      {"label": "Minimal (Recommended)", "description": "Skill factory + memory only (~2 min)"},
+      {"label": "Recommended", "description": "Core + skills + containers (~5 min)"},
+      {"label": "Full Install", "description": "Everything included (~10 min)"},
+      {"label": "Custom", "description": "Pick individual components"}
+    ],
+    "multiple": false
+  }]
+}
+```
+
+### Step 4: If Custom Selected - Present Categories
+Loop through categories from menu.json, using question tool with `"multiple": true`.
+
+### Step 5: Confirm Selections
+```json
+{
+  "questions": [{
+    "question": "Install these components?",
+    "header": "Confirm",
+    "options": [
+      {"label": "Yes, proceed (Recommended)", "description": "Start installation"},
+      {"label": "Modify", "description": "Change selections"},
+      {"label": "Cancel", "description": "Abort setup"}
+    ],
+    "multiple": false
+  }]
+}
+```
+
+### Step 6: Execute Phases
+1. Run `setup/scripts/detect-paths.sh`
+2. Execute phases in `setup/phases/` in order
+3. Update `setup/.progress.json` after each phase
+
+### Step 7: Show Post-Install Guide
+Display `docs/POST-INSTALL.md` content to user.
+
+---
+
+## Question Tool Requirements
+
+The question tool MUST be used for all user choices. It:
+- Presents clickable options in the TUI
+- Returns user selections as labels
+- Supports single and multi-select
+
+If the question tool is not working:
+1. Check OpenCode version is up to date
+2. Verify interactive session (not batch mode)
+3. Check `setup/scripts/check-question-tool.sh` output
+
+---
+
+## Troubleshooting
+
+If setup fails:
+- Run `rollback.sh` to undo changes
+- Check `docs/TROUBLESHOOTING.md`
+- Run `health-check.sh` to diagnose

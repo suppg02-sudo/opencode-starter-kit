@@ -1,11 +1,18 @@
 # Phase 1: Prerequisites
 
-**Checks**: Docker, Python3, Git, detects paths
+**Checks**: Question tool, Docker, Python3, Git, detects paths
 **Duration**: ~30 seconds
 
 ## Execute
 
 ```bash
+# CRITICAL: Verify question tool is available
+setup/scripts/check-question-tool.sh || {
+    echo "ERROR: Question tool check failed"
+    echo "Fix issues before proceeding"
+    exit 1
+}
+
 # Detect system paths (creates ~/.config/opencode/.paths)
 setup/scripts/detect-paths.sh
 
@@ -31,7 +38,9 @@ Paths file created at `~/.config/opencode/.paths` containing:
 - Port defaults for all services
 
 ## Validate
+- [ ] Question tool available (critical!)
 - [ ] Docker installed
 - [ ] Python3 installed
 - [ ] Git installed
 - [ ] Directories created
+- [ ] .paths file created
